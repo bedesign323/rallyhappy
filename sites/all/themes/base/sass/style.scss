@@ -1,0 +1,665 @@
+@import "compass";
+@import "_reset";
+@import "_fonts";
+@import "_icons";
+@import "_base";
+@import "_modal";
+
+/* BASIC STYLES
+-------------------------------------------------------------- */
+*{
+  @include box-sizing('border-box');
+}
+html{
+	height: 100%;
+}
+body{
+  font: 16px/1.5 $font_main;
+  background-color: $page_bg;  
+  color: $color_main;
+  height: 100%;
+  position: relative;
+}
+
+a{
+  @include transition;
+  color: $color_accent;
+  
+  &:hover{
+    color: $color_main;
+  }
+}
+
+p{
+  text-align: justify;
+  font-size: 1.1em;
+
+  @include bp(s){
+	font-size: 1em;
+	text-align: left;
+  }
+}
+
+p + p{
+  margin-top: 40px;
+}
+
+p.big{
+	font-size: 1.5em;
+	@include bp(s){
+	font-size: 1em;
+  }
+}
+
+.fancy{
+	font-family: $font_fancy;
+}
+
+.fancy-bold{
+	font-family: $font_fancy_bold;
+}
+
+.center{
+	text-align: center;
+}
+
+
+ul,
+ul.menu,
+ul.menu li{
+  list-style: none;
+  text-align: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+li a.active,
+li.opened span.nolink{color: $color_main;}
+
+h1{
+	text-align: center;
+	font-family: $font_header;
+	font-size: 3.5em;
+
+	@include bp(s){
+	font-size: 1.5em;
+  }
+}
+
+h2{
+	text-align: center;
+	font-family: $font_header;
+	font-size: 2em;
+
+	@include bp(s){
+	font-size: 1.5em;
+  }
+}
+
+h3{
+	text-align: center;
+	font-family: $font_header;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+p + .box{
+	margin-top: 60px;
+}
+
+.date{
+	text-align: center;
+	font-size: 2.5em;
+	@include bp(s){
+	font-size: 1.5em;
+  }
+}
+
+sup{
+	font-size: .6em;
+	position: relative;
+	top: -10px;
+}
+
+strong{
+	font-family: $font_header;
+}
+
+/* Layout
+-------------------------------------------------------------- */
+
+
+#nav{
+	@include box-shadow;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: $color_main;
+	z-index: 100;
+	text-align: center;
+
+	li{
+		@include inline-block;
+		text-align: center;
+
+		a{
+			@include inline-block;
+			text-decoration: none;
+			font-family: $font_header;
+			text-transform: uppercase;
+			padding: 20px;
+			color: #fff;
+			font-size: .8em;
+			letter-spacing: 2px;
+
+			&:hover,
+			&.active{
+				background-color: $color_submit;
+			}
+		}
+	}
+
+	@include bp(m){
+		
+		li{
+
+			a{
+				letter-spacing: 0;
+			}
+		}
+	}
+
+	@include bp(s){
+		
+		ul{
+			display: none;
+
+			li{
+				display: block;
+
+				a{
+					display: block;
+					padding: 10px;
+				}
+			}
+		}
+	}
+}
+
+
+.menu-toggle{
+	display: none;
+	text-decoration: none;
+	font-family: $font_header;
+	text-transform: uppercase;
+	padding: 10px;
+	color: #fff;
+	font-size: .8em;
+	letter-spacing: 2px;
+	cursor: pointer;
+
+	@include bp(s){
+		display: block;
+	}
+}
+
+header{}
+
+#intro{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	padding-top: 60px;
+
+	@include bp(m){
+		height: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+#logo{
+	text-align: center;
+	margin: 0 auto 40px;
+	padding-top: 200px;
+	max-width: 770px;
+
+	img{
+		width: 100%;
+	}
+
+	@include bp(m){
+		max-width: 550px;
+		padding-top: 40px;
+	}
+
+	@include bp(s){
+		max-width: 80%;
+		margin-bottom: 20px;
+	}
+}
+
+#banner{
+	text-align: center;
+
+	margin: 0 auto 40px;
+	max-width: 480px;
+
+	img{
+		width: 100%;
+	}
+
+	@include bp(m){
+		max-width: 350px;
+	}
+
+	@include bp(s){
+		max-width: 70%;
+	}
+}
+
+#bg-image{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	
+	background: url(../images/kate-on-rock.jpg) no-repeat bottom left ; 
+	background-position: fixed;
+	background-size: 100% auto;
+	z-index: -1;
+
+	@include bp(m){
+		position: relative;
+		background-position: relative; 
+	}
+
+
+}
+
+#main-container{
+}
+
+nav{
+
+	ul{}
+
+	li{}
+
+	a{
+
+		&:hover{}
+
+		&.active{}
+	}
+}
+
+.section{
+	background-color: $page_bg;
+	padding: 80px 20px;
+
+	.inner{
+		max-width: 700px;
+		margin: auto;
+
+		&.center{
+			text-align: center;
+		}
+	}
+
+	&.med{
+		background-color: rgba($page_med, .8);
+	}
+
+	&.dark{
+		background-color: $color_accent;
+		color: $page_bg;
+
+		a{
+			color: #fff;
+
+			&:hover{
+				color: $page_med;
+			}
+		}
+
+		&.med{
+			background-color: rgba($color_accent, .8);
+		}
+	}
+
+	&.xdark{
+		background-color: $color_main;
+		color: $page_bg;
+
+		a{
+			color: #fff;
+
+			&:hover{
+				color: $color_accent;
+			}
+		}
+	}
+
+	&.lt{
+		background-color: rgba($color_accent, .8);
+	}
+
+	@include bp(s){
+		padding: 20px;
+	}
+}
+
+.join-teaser{
+	font-size: 2em;
+	font-family: $font_fancy;
+
+	
+
+	@include bp(s){
+		font-size: 1.5em;
+	}
+}
+
+.btn,
+input[type="submit"],
+button{
+	@include inline-block;
+	@include single-box-shadow($color_main, 4px, 4px, 0);
+	@include transition(none, 0);
+	background: none;
+	-webkit-appearance: none;
+	background-color: $color_submit;
+	border: none;
+	padding: 20px 40px;
+	color: #fff;
+	font-family: $font_main;
+	position: relative;
+	text-decoration: none;
+	cursor: pointer;
+	text-shadow: 1px 1px 0 darken($color_submit, 10%);
+
+	&:hover{
+		color: #fff !important;
+		top: 1px;
+		left: 1px;
+		@include single-box-shadow($color_main, 3px, 3px, 0);
+	}
+
+	&.huge{
+		font-size: 2.5em;
+		margin: 40px 0 20px;
+	}
+
+	@include bp(s){
+		padding: 10px 20px;
+	}
+}
+
+input[type="submit"]{
+	font-size: 2em;
+
+	@include bp(s){
+	font-size: 1.5em;
+  }
+}
+
+
+
+.section-header{
+	padding: 0 0 40px;
+}
+
+.quote{
+	font-family: $font_fancy;
+
+	.author{
+		font-family: $font_header;
+		text-align: right;
+		margin-top: 20px;
+	}
+}
+
+.pull{
+	text-align: center;
+	color: $color_accent;
+	font-size: 2em;
+	margin: 40px 0;
+}
+
+.footnote{
+	padding: 20px 0;
+	margin-top: 40px;
+	border-top: $color_accent solid 2px;
+
+	@include bp(s){
+		font-size: .8em;
+	}
+}
+
+.banner{
+	text-align: center;
+	margin-top: 80px;
+
+		img{
+			max-width: 100%;
+			height: auto;
+		}
+	@include bp(s){
+		margin-top: 20px;
+	}
+
+
+}
+
+.stars{
+	text-align: center;
+	margin-top: 40px;
+}
+
+.follow-icons{
+	text-align: center;
+	margin-top: 40px;
+
+	a{
+		@include inline-block;
+		font-size: 7em;
+		margin: 20px;
+	}
+
+	@include bp(s){
+		margin-top: 20px;
+
+		a{
+			font-size: 3em;
+		}
+	}
+}
+
+#footer-container{
+
+}
+
+form{
+	margin-top: 40px;
+
+	label{
+		font-size: 1.2em;
+		font-family: $font_fancy;
+		color: $color_main;
+	}
+
+	@include bp(s){
+		margin-top: 20px;
+
+		label{
+			font-size: .8em;
+			font-family: $font_fancy;
+			color: $color_main;
+		}
+	}
+}
+
+input[type="text"],
+input[type="email"]{
+	@include single-box-shadow($color_accent, 4px, 4px, 0);
+	width: 100%;
+	padding: 10px;
+	border: $color_accent 1px solid;
+	background-color: #eee;
+	font-family: $font_main;
+	font-size: 1.5em;
+	
+	&:focus{
+		background-color: #fff;
+	}
+
+	&.error{
+		border: $color_error solid 2px;
+	}
+
+
+}
+
+.form-required{
+	color: $color_error;
+	font-size: 1.5em;
+}
+
+
+#webform-component-first-name{
+	width: 49%;
+	margin: 0 1% 20px 0;
+	float: left;
+}
+
+#webform-component-last-name{
+	width: 49%;
+	margin: 0 0 20px 1%;
+	float: left;
+}
+
+#webform-component-email{
+	width: 69%;
+	margin: 0 1% 20px 0;
+	float: left;
+}
+
+#webform-component-zipcode{
+	width: 29%;
+	margin: 0 0 20px 1%;
+	float: left;
+}
+
+.messages.error{
+	border: none;
+	background: $color_error;
+	padding: 20px;
+	color: lighten($color_error, 20%);
+	font-family: $font_fancy;
+	font-size: 1.2em;
+
+	ul{
+		margin: 0;
+	}
+}
+
+.webform-confirmation{
+	border: none;
+	background: lighten($color_submit, 30%);
+	padding: 20px;
+	color: $color_main;
+	margin: 40px 0;
+	font-size: 1em;
+ 
+	p + p{
+		margin-top: 10px;
+	}
+}
+
+a.ajax-processed{
+	display: none;
+}
+
+
+
+.form-actions.form-wrapper{
+	text-align: center;
+	padding-top: 30px;
+	clear: both;
+	font-size: 1.5em;
+
+	@include bp(s){
+		font-size: .9em;
+		padding-top: 10px;
+	}
+}
+
+
+.krumo-root{
+	color: #666 !important;
+
+	a{
+		color: #666 !important;
+
+	}
+}
+
+.box{
+	color: $color_main !important;
+	position: relative;
+	max-width: 1000px;
+	padding: 40px;
+	margin: 0 auto;
+	background-color: #fff;
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+
+	a{
+		color: $color_accent !important;
+	}
+
+	@include bp(s){
+		padding: 40px 10px;
+	}
+}
+
+.box:before, .box:after{
+	position: absolute;
+	width: 40%;
+	height: 10px;
+	content: ' ';
+	left: 12px;
+	bottom: 12px;
+	background: transparent;
+	-webkit-transform: skew(-5deg) rotate(-5deg);
+	-moz-transform: skew(-5deg) rotate(-5deg);
+	-ms-transform: skew(-5deg) rotate(-5deg);
+	-o-transform: skew(-5deg) rotate(-5deg);
+	transform: skew(-5deg) rotate(-5deg);
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+	z-index: -1;
+} 
+
+.box:after{
+	left: auto;
+	right: 12px;
+	-webkit-transform: skew(5deg) rotate(5deg);
+	-moz-transform: skew(5deg) rotate(5deg);
+	-ms-transform: skew(5deg) rotate(5deg);
+	-o-transform: skew(5deg) rotate(5deg);
+	transform: skew(5deg) rotate(5deg);
+}
+
+
+
+
+
+

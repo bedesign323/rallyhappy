@@ -1,0 +1,81 @@
+/* VARS 
+-------------------------------------------------------------- */
+$main_width:      1200px;
+
+$bp_lg:           1400px;
+$bp_med:          1300px;
+$bp_sm:           600px;
+
+/*  COLORS  */
+$color_main:         #365992;                 
+$color_accent:       #4976c0;              
+$color_submit:       #81bf7e;
+$color_error:        #d86966;
+$color_warning:      #f0da72;
+
+$page_bg:            #fff;
+$page_med:           darken($page_bg, 5%);
+$page_lt:            #405858;
+$page_dark:          #27477b;
+
+/*  TYPOGROPHY */
+$font_main:					'LatoLight', sans-serif;
+$font_header:				'LatoBold', sans-serif;
+$font_fancy:        		'LatoLightItalic', sans-serif;
+$font_fancy_bold:       'LatoBoldItalic', sans-serif;
+
+$font_weight_lt:         100;
+$font_weight_reg:        400;
+$font_weight_bold:       700;
+
+/*  TRANSITIONS  */
+$default-transition-property : all;
+$default-transition-duration : .3s;
+$default-transition-function : false;
+$default-transition-delay    : false;
+
+$default-box-shadow-color: #333;
+$default-box-shadow-h-offset: 0px;
+$default-box-shadow-v-offset: 0px;
+$default-box-shadow-blur: 2px;
+
+/* MIX-INS 
+-------------------------------------------------------------- */
+@mixin bp($point) {
+  @if $point == l {
+    @media (max-width: $bp_lg) { @content; }
+  }
+  @else if $point == m {
+    @media (max-width: $bp_med) { @content; }
+  }
+  @else if $point == s {
+    @media (max-width: $bp_sm)  { @content; }
+  }
+}
+
+
+
+/* PLACEHOLDERS & EXTENDS
+-------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
